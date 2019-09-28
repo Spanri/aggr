@@ -24,16 +24,16 @@ export const actions = {
   [AUTH_REQUEST]({ commit, dispatch, }, user) {
     return new Promise((resolve, reject) => { // The Promise used for router redirect in login
       commit(AUTH_REQUEST);
-      axios.post('http://18.222.253.172/login', {
-        // Send the client cookies to the server
-        credentials: 'same-origin',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-      })
-      // this.$axios.$post('http://18.222.253.172/login', user)
+      // axios.post('http://18.222.253.172/login', {
+      //   // Send the client cookies to the server
+      //   credentials: 'same-origin',
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(user),
+      // })
+      this.$axios.$post('http://18.222.253.172/login', user)
         .then((resp) => {
           console.log(resp);
           const token = resp;
@@ -57,7 +57,9 @@ export const actions = {
   [AUTH_LOGOUT]: ({ commit, dispatch, }) => {
     return new Promise((resolve, reject) => {
       commit(this.AUTH_LOGOUT);
-      localStorage.removeItem('user-token'); // clear your user's token from localstorage
+      if (process.browser) {
+        localStorage.removeItem('user-token');
+      }
       resolve();
     });
   },
