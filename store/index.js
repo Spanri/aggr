@@ -21,7 +21,7 @@ export const actions = {
   //     commit('user', req.session.user);
   //   }
   // },
-  [AUTH_REQUEST]({ commit, dispatch, }, user) {
+  [AUTH_REQUEST]({ commit, /*dispatch,*/ }, user) {
     return new Promise((resolve, reject) => { // The Promise used for router redirect in login
       commit(AUTH_REQUEST);
       // axios.post('http://18.222.253.172/login', {
@@ -54,8 +54,8 @@ export const actions = {
         });
     });
   },
-  [AUTH_LOGOUT]: ({ commit, dispatch, }) => {
-    return new Promise((resolve, reject) => {
+  [AUTH_LOGOUT]: ({ commit, /*dispatch*/ }) => {
+    return new Promise((resolve, /*reject*/) => {
       commit(this.AUTH_LOGOUT);
       if (process.browser) {
         localStorage.removeItem('user-token');

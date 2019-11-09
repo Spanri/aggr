@@ -14,13 +14,13 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    "vue/max-attributes-per-line": ["error", {
-      "singleline": 2,
-      "multiline": {
-        "max": 2,
-        "allowFirstLine": false,
-      },
-    },],
+    // "vue/max-attributes-per-line": ["error", {
+    //   "singleline": 2,
+    //   "multiline": {
+    //     "max": 2,
+    //     "allowFirstLine": false,
+    //   },
+    // },],
     "semi": [2, "always"],
     "no-extra-semi": "warn",
     "no-console": "off",

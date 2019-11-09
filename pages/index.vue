@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     Главная
-    <Button />
+    <Button>Кнопочка</Button>
     <router-link to="login">
       Войти
     </router-link>

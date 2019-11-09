@@ -1,4 +1,3 @@
-
 export default {
   mode: 'universal',
   /*
@@ -23,6 +22,7 @@ export default {
   ** Global CSS
   */
   css: [
+
   ],
   /*
   ** Plugins to load before mounting the App
@@ -43,9 +43,15 @@ export default {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org/docs/
-    'bootstrap-vue/nuxt',
+    // 'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
   ],
+  styleResources: {
+    scss: [
+      '@/assets/scss/_variables.scss',
+    ],
+  },
   /*
   ** Axios
   */
@@ -76,7 +82,7 @@ export default {
         },
       },
     },
-    extend(config, ctx) {
+    extend(/*config, ctx*/) {
     },
   },
 };
