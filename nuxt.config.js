@@ -29,6 +29,7 @@ export default {
   */
   plugins: [
     { src: '~/plugins/vuex-persist', ssr: false, },
+    '~/plugins/vuelidate.js',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -58,6 +59,23 @@ export default {
     /*
     ** You can extend webpack config here
     */
+    postcss: {
+      plugins: {
+        // Disable a plugin by passing false as value
+        'postcss-url': false,
+        'postcss-responsive-type': {},
+      },
+      preset: {
+        // Change the postcss-preset-env settings
+        autoprefixer: {
+          grid: true,
+          flexbox: true,
+        },
+        doiuse: {
+
+        },
+      },
+    },
     extend(config, ctx) {
     },
   },

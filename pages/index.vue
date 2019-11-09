@@ -1,28 +1,35 @@
 <template>
   <div class="container">
-    <div v-if="!$store.getters.isAuthenticated" class="auth" @submit.prevent="login">
-      <Auth />
-    </div>
-    <div v-else class="authenticated">
+    Главная
+    <Button />
+    <router-link to="login">
+      Войти
+    </router-link>
+    <!-- <Login v-if="!$store.getters.isAuthenticated" /> -->
+    <!-- <div v-else>
       <p>Авторизовались походу</p>
-      <!-- <Header></Header>
+      <Header></Header>
       <router-view></router-view>
-      <Footer></Footer> -->
-    </div>
+      <Footer></Footer>
+    </div> -->
   </div>
 </template>
 
 <script>
-import Auth from '~/components/Auth.vue';
+// import Login from '~/components/Login.vue';
 
 export default {
+  name: 'Index',
   components: {
-    Auth,
+    // Login,
+    Button: () => import('@/ui-components/Button'),
   },
 };
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -30,5 +37,9 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+::placeholder {
+  color: gray;
 }
 </style>
