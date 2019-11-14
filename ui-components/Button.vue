@@ -33,18 +33,18 @@ export default {
 
     &_0 {
       background: $color-accent;
-      color: $color-light;
+      color: $color-gray-light;
 
       &:hover {
         cursor: pointer;
-        background: $color-light;
+        background: $color-gray-light;
         color: $color-accent;
       }
 
     }
 
     &_1 {
-      background: $color-light;
+      background: $color-gray-light;
       color: $color-accent;
     }
 

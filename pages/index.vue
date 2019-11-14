@@ -22,7 +22,7 @@ export default {
   name: 'Index',
   components: {
     // Login,
-    Button: () => import('@/ui-components/Button'),
+    Button: () => import('@/ui-components/Button.vue'),
   },
 };
 </script>

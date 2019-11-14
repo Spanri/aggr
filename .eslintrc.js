@@ -26,5 +26,5 @@ module.exports = {
     "no-console": "off",
     "comma-dangle": [2, "always"],
     "space-before-function-paren": [2, "never"],
-  }
+  },
 }
