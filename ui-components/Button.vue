@@ -11,10 +11,10 @@
 export default {
   name: "Button",
   props: {
-    // 0 - backg accent, 1 - backg light
+    // false - backg accent, true - backg light
     type: {
       type: Boolean,
-      default: 0,
+      default: false,
     },
   },
 };

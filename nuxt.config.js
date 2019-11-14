@@ -35,7 +35,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
+    '@nuxt/typescript-build',
     '@nuxtjs/eslint-module',
   ],
   /*
@@ -58,6 +58,9 @@ export default {
   axios: {
     // proxyHeaders: false
   },
+  extends: [
+    '@nuxtjs/eslint-config-typescript',
+  ],
   /*
   ** Build configuration
   */
