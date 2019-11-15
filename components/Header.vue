@@ -2,7 +2,18 @@
   <header class="header">
     <Logo class="header__logo" />
     <Nav class="header__nav" :items="items" />
-    <div class="header__profile">профиль</div>
+    <div 
+      class="header__profile header__profile_false"
+    >
+      <span class="header__profile-text">Войти</span>
+      <LogoProfile class="header__profile-logo"/>
+    </div>
+    <!-- <div 
+      class="header__profile header__profile_true"
+    >
+      <span class="header__profile-text">Войти</span>
+      <LogoProfile class="header__profile-logo"/>
+    </div> -->
   </header>
 </template>
 
@@ -13,8 +24,9 @@ export default Vue.extend({
   name: 'headerComponent',
 
   components: {
-    Nav: () => import('@/components/Nav.vue'),
     Logo: () => import('@/assets/svg/logo.svg'),
+    Nav: () => import('@/components/Nav.vue'),
+    LogoProfile: () => import('@/assets/svg/logoProfile.svg'),
   },
 
   data() {
@@ -37,9 +49,25 @@ export default Vue.extend({
     flex-direction: row;
     justify-content: space-between;
 
+    max-width: 1440px;
+    margin: 0 auto;
+
     &__logo {
-      height: 16px;
-      width: 16px;
+      height: 42px;
+      margin: 30px;
+    }
+
+    &__nav {
+      align-items: center;
+    }
+
+    &__profile {
+
+      &-logo {
+        height: 35px;
+        margin: 30px;
+      }
+
     }
 
   }

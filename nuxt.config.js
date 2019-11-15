@@ -51,6 +51,7 @@ export default {
   styleResources: {
     scss: [
       '@/assets/scss/_variables.scss',
+      '@/assets/scss/_general.scss',
     ],
   },
   /*
@@ -86,16 +87,16 @@ export default {
         },
       },
     },
-    extend(config, ctx) {
+    extend(config,/* ctx*/) {
       // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
+      // if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)|(\.svg$)/,
         });
-      }
+      // }
     },
   },
 };
