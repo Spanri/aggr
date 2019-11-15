@@ -20,6 +20,6 @@ export default Vue.extend({
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
-  visibility: hidden;
+  //visibility: hidden;
 }
 </style>
