@@ -1,15 +1,15 @@
 <template>
   <button
-    class="button"
-    :class="type ? 'button__type_1' : 'button__type_0'"
+    class="ui-button"
+    :class="type ? 'ui-button__type_1' : 'ui-button__type_0'"
   >
-    <slot class="button__slot" />
+    <slot class="ui-button__slot" />
   </button>
 </template>
 
 <script>
 export default {
-  name: "Button",
+  name: "UiButton",
   props: {
     // false - backg accent, true - backg light
     type: {
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.button {
+.ui-button {
   all: unset;
   background: none;
   border: 0;

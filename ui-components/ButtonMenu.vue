@@ -1,6 +1,6 @@
 <template>
-  <nuxt-link class="button" :to="href">
-    <slot class="button__slot" />
+  <nuxt-link class="ui-button-menu" :to="href">
+    <slot class="ui-button-menu__slot" />
   </nuxt-link>
 </template>
 
@@ -8,7 +8,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: "ButtonMenu",
+  name: "UiButtonMenu",
   props: {
     href: String,
   },
@@ -22,7 +22,7 @@ export default Vue.extend({
   color: $color-gray-light;
 }
 
-.button {
+.ui-button-menu {
   all: unset;
   border: 0;
   padding: 10px;

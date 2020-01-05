@@ -21,12 +21,12 @@ export default {
   },
 
   methods: {
-     animate() {
+    animate() {
       const timeLine = new TimelineMax();
       timeLine.set('.app__loader', { visibility: 'hidden', delay: 1, });
       timeLine.from('.app__loader', 1, { alpha: 0, ease: 0, });
       timeLine.to('.app__loader', 1, { alpha: 1, ease: 1, });
-      timeLine.to('.app__loader', 1.5, { alpha: 0, ease: 0, });
+      timeLine.to('.app__loader', 1.5, { alpha: 0, ease: 1, });
       // timeLine.set('.content', { visibility: 'visible', delay: 1, });
       // timeLine.from('.content', 1, { alpha: 0, ease: Sine.easeInm, });
       // timeLine.to('.content', 1, { alpha: 1, ease: Sine.easeIn, });
@@ -52,7 +52,7 @@ export default {
   },
 
   beforeMount() {
-    //this.animate();
+    this.animate();
   },
 };
 </script>
