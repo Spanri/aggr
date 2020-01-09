@@ -1,8 +1,10 @@
 <template>
   <div class="app">
     <Header class="app__header" />
-    <Loader class="app__loader"></Loader>
-    <nuxt class="app__main"/>
+    <main class="app__content">
+      <Loader class="app__loader"></Loader>
+      <nuxt class="app__main"/>
+    </main>
     <Footer class="app__footer"/>
   </div>
 </template>
@@ -12,7 +14,7 @@ import { TimelineMax, } from 'gsap';
 //import { Sine, } from 'gsap/all';
 
 export default {
-  name: 'Default',
+  name: 'DefaultLayout',
 
   components: {
     Header: () => import('@/components/Header/Header.vue'),
@@ -56,3 +58,15 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.app {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: space-between;
+
+  min-height: 100vh;
+  height: 100%;
+}
+</style>

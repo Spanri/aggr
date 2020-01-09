@@ -40,7 +40,7 @@ export default Vue.extend({
     padding: 10px;
     border-radius: 20px;
     border: 2px solid transparent;
-    color: $gray;
+    color: $gray-lightest;
 
     &:hover {
       cursor: pointer;

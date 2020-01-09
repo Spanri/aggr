@@ -23,6 +23,7 @@ export default {
      */
     css: [
         'normalize.css/normalize.css',
+        '~/assets/icomoon/style.css',
     ],
     /*
      ** Plugins to load before mounting the App

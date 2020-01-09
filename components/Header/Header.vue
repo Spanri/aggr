@@ -1,14 +1,17 @@
 <template>
   <div class="header-wrapper">
     <header class="header">
-      <Logo class="header__logo" />
+      <nuxt-link class="header__logo-link" to="/">
+        <Logo class="header__logo" />
+      </nuxt-link>
       <HeaderNav class="header__nav" :items="items" />
-      <div 
+      <nuxt-link
+        to="/login"
         class="header__profile header__profile_false"
       >
         <span class="header__profile-text">Войти</span>
-        <LogoProfile class="header__profile-logo"/>
-      </div>
+        <span class="header__profile-logo icon-person" />
+      </nuxt-link>
       <!-- <div 
         class="header__profile header__profile_true"
       >
@@ -65,24 +68,30 @@ export default Vue.extend({
 
     &__nav {
       align-items: center;
+      user-select: none;
     }
 
     &__profile {
       display: flex;
       align-items: center;
+      color: $gray-lightest;
+      text-decoration: none;
+      user-select: none;
 
       &:hover {
         cursor: pointer;
-        color: $white;
+        color: $gray;
         transition: 0.3s;
 
-        &-logo {
-          width: 50px;
+        & .header__profile-logo {
+          transition: 0.4s;
+          color: $color-accent;
         }
       }
 
       &-logo {
-        height: 35px;
+        font-size: 30px;
+        color: $gray-lightest;
         margin: 20px 20px 20px 10px;
       }
 

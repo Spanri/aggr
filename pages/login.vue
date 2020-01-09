@@ -65,6 +65,8 @@ import {
 export default {
   name: 'Login',
 
+  layout: "empty",
+
   data() {
     return {
       username: '',
