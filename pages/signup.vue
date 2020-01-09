@@ -28,15 +28,15 @@
 // } from '../store/mutations-type';
 
 export default {
-  name: 'SignUp',
+  name: 'Signup',
   components: {
-    SignUp1: () => import('@/components/SignUp1.vue'),
-    SignUp2: () => import('@/components/SignUp2.vue'),
+    SignUp1: () => import('@/components/Signup1.vue'),
+    SignUp2: () => import('@/components/Signup2.vue'),
     // SignUp3: () => import('@/components/SignUp3.vue'),
   },
   data() {
     return {
-      signUpPhase: 'SignUp1',
+      signUpPhase: 'Signup1',
     };
   },
   methods: {

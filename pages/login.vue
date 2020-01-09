@@ -64,12 +64,16 @@ import {
 
 export default {
   name: 'Login',
+
+  layout: "empty",
+
   data() {
     return {
       username: '',
       password: '',
     };
   },
+
   validations: {
     username: {
       required,
@@ -79,6 +83,7 @@ export default {
       required,
     },
   },
+
   methods: {
     submit() {
       this.$v.$touch();
