@@ -1,15 +1,17 @@
 <template>
   <div class="loader">
-    <a href="" class="loader__link">
-      <img src="@/assets/images/loader.png" alt="">
+    <a href
+class="loader__link">
+      <img
+src="@/assets/images/loader.png" alt />
     </a>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 export default Vue.extend({
-  name: "Loader",
+  name: "Loader"
 });
 </script>
 

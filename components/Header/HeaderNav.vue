@@ -1,8 +1,10 @@
 <template>
   <nav class="nav">
-    <nuxt-link 
-      class="nav__item" v-for="(item, index) in items"
-      :key="index" :to="item.href"
+    <nuxt-link
+      v-for="(item, index) in items"
+      :key="index"
+      class="nav__item"
+      :to="item.href"
     >
       {{ item.title }}
     </nuxt-link>
@@ -10,15 +12,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
 export default Vue.extend({
-  name: 'HeaderNav',
+  name: "HeaderNav",
 
   props: {
-    items: Array,
-  },
-  
+    items: Array
+  }
 });
 </script>
 

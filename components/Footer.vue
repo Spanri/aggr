@@ -1,18 +1,22 @@
 <template>
   <div class="footer-wrapper">
     <footer class="footer">
-      <object class="footer__logo" data="" />
-      <nav class="footer__nav">Подвал сайта</nav>
-      <div class="footer__profile"></div>
+      <object
+class="footer__logo" data
+/>
+      <nav class="footer__nav">
+        Подвал сайта
+      </nav>
+      <div class="footer__profile" />
     </footer>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 
 export default Vue.extend({
-  name: "Footer",
+  name: "Footer"
 });
 </script>
 

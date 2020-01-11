@@ -1,21 +1,46 @@
 {
   "javascript.format.enable": false,
-  "eslint.autoFixOnSave": true,
-  "eslint.validate": [
-    {
-      "language": "vue",
-      "autoFix": true
-    },
-    {
-      "language": "html",
-      "autoFix": true
-    },
-    {
-      "language": "javascript",
-      "autoFix": true
-    },
-  ],
+  // "eslint.autoFixOnSave": true,
+  // "eslint.validate": [
+  //   {
+  //     "language": "vue",
+  //     "autoFix": true
+  //   },
+  //   {
+  //     "language": "html",
+  //     "autoFix": true
+  //   },
+  //   {
+  //     "language": "javascript",
+  //     "autoFix": true
+  //   }
+  // ],
+
+  // Formatters
+  "javascript.preferences.quoteStyle": "double",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+
+  // Editor
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+
+  // Eslint
+  "eslint.enable": true,
+  "eslint.workingDirectories": ["."],
+
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  },
+  }
 }

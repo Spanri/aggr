@@ -1,102 +1,115 @@
 <template>
   <div class="login-wrapper">
     <form
-      class="login"
-      @submit.prevent="submit"
-    >
+class="login" @submit.prevent="submit"
+>
       <h1 class="login__title">
         Вход
       </h1>
       <p class="login__input-title">
         Номер телефона *
       </p>
-      <b-form-input
+      <Input
+        v-model="$v.username.model"
+        class="input login__input login__input_username"
+        placeholder="Введите номер телефона"
+        :aria-describedby="`login__invalid-feedback-username`"
+      />
+      <!-- <b-form-input
         v-model="$v.username.$model"
         class="input login__input"
         type="text"
         placeholder="Введите номер телефона"
         :state="$v.username.$dirty ? !$v.username.$error : null"
         :aria-describedby="`login__invalid-feedback-username`"
-      />
+      />-->
       <b-form-invalid-feedback :id="`login__invalid-feedback-username`">
         Обязательное поле, только цифры.
       </b-form-invalid-feedback>
       <p class="login__input-title">
         Номер телефона *
       </p>
-      <b-form-input
+      <Input
+        v-model="$v.password.model"
+        class="input login__input login__input_password"
+        placeholder="Введите пароль"
+        type="password"
+        :aria-describedby="`login__invalid-feedback-password`"
+      />
+      <!-- <b-form-input
         v-model="$v.password.$model"
         class="input login__input"
         type="password"
         placeholder="Введите пароль"
         :state="$v.password.$dirty ? !$v.password.$error : null"
         :aria-describedby="`login__invalid-feedback-password`"
-      />
+      />-->
       <b-form-invalid-feedback :id="`login__invalid-feedback-password`">
         Обязательное поле.
       </b-form-invalid-feedback>
-      <button class="button login__button" type="submit">
+      <button
+class="button login__button" type="submit">
         Войти
       </button>
       <br>
       <div class="login__link_password">
-        <nuxt-link to="">
+        <nuxt-link to>
           Забыли пароль?
         </nuxt-link>
       </div>
       <span class="login__link_signup">
         Нет аккаунта?
-        <nuxt-link to="signup">
-          Зарегистрироваться
-        </nuxt-link>
+        <nuxt-link to="signup">Зарегистрироваться</nuxt-link>
       </span>
     </form>
   </div>
 </template>
 
 <script>
-import {
-  required,
-} from 'vuelidate/lib/validators';
+import { required } from "vuelidate/lib/validators";
 // import {
 //   AUTH_REQUEST,
 // } from '../store/mutations-type';
 
 export default {
-  name: 'Login',
+  name: "Login",
 
   layout: "empty",
 
+  components: {
+    Input: () => import("@/ui-components/Input.vue")
+  },
+
   data() {
     return {
-      username: '',
-      password: '',
+      username: "",
+      password: ""
     };
   },
 
   validations: {
     username: {
       required,
-      type: Number,
+      type: Number
     },
     password: {
-      required,
-    },
+      required
+    }
   },
 
   methods: {
     submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        alert('Ошибок в заполнении формы нет, но и вход пока не реализован.');
+        alert("Ошибок в заполнении формы нет, но и вход пока не реализован.");
         // const { username, password, } = this;
         // this.$store.dispatch(AUTH_REQUEST, { username, password, }).then(() => {
         //   // this.$router.push('/home');
         //   console.log('isAuthenticated', this.$store.getters.isAuthenticated);
         // });
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -129,11 +142,11 @@ export default {
     width: 300px;
     border: 0;
     border-radius: 0;
-    border-bottom: 2px solid #8D8D8D;
+    border-bottom: 2px solid #8d8d8d;
     padding: 10px 0;
 
     &-title {
-      color: #8D8D8D;
+      color: #8d8d8d;
       text-align: left;
       font-size: 16px;
       font-size: responsive 13px 16px;
@@ -157,8 +170,8 @@ export default {
 
   &__button {
     padding: 15px 45px;
-    background: #FFFFFF;
-    border: 2px solid #31B0CE;
+    background: #ffffff;
+    border: 2px solid #31b0ce;
     box-sizing: border-box;
     border-radius: 25px;
     font-family: Ubuntu;
@@ -167,7 +180,7 @@ export default {
     font-size: 18px;
     line-height: 21px;
     text-align: center;
-    color: #10B2D6;
+    color: #10b2d6;
   }
 
   &__link_password {

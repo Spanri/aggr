@@ -1,8 +1,5 @@
 <template>
-  <button
-    class="ui-button"
-    :class="type ? 'ui-button__type_1' : 'ui-button__type_0'"
-  >
+  <button class="ui-button" :class="type ? 'ui-button__type_1' : 'ui-button__type_0'">
     <slot class="ui-button__slot" />
   </button>
 </template>
@@ -14,9 +11,9 @@ export default {
     // false - backg accent, true - backg light
     type: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>
 
@@ -30,7 +27,6 @@ export default {
   border: 2px solid $color-accent;
 
   &__type {
-
     &_0 {
       background: $color-accent;
       color: $white;
@@ -40,15 +36,12 @@ export default {
         background: $white;
         color: $color-accent;
       }
-
     }
 
     &_1 {
       background: $white;
       color: $color-accent;
     }
-
   }
-
 }
 </style>

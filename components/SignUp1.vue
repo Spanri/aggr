@@ -1,8 +1,7 @@
 <template>
   <form
-    class="signup1"
-    @submit.prevent="submit"
-  >
+class="signup1" @submit.prevent="submit"
+>
     <div class="input-block-wrapper">
       <form-group
         v-for="(block, index) in blocks"
@@ -11,79 +10,100 @@
       >
         <p
           class="input-block__title"
-          :class="block.model == 'passwordRepeat' ? 'input-block__title-password' : ''"
+          :class="
+            block.model == 'passwordRepeat' ? 'input-block__title-password' : ''
+          "
           v-html="block.title"
         />
         <b-form-input
           v-model="$v[block.model].$model"
           class="input-block__input"
-          :type="(block.model == 'password' || block.model == 'passwordRepeat') ? 'password' : 'text'"
+          :type="
+            block.model == 'password' || block.model == 'passwordRepeat'
+              ? 'password'
+              : 'text'
+          "
           :state="$v[block.model].$dirty ? !$v[block.model].$error : null"
           :aria-describedby="`input-block__invalid-feedback-${block.model}`"
         />
-        <b-form-invalid-feedback :id="`input-block__invalid-feedback-${block.model}`">
+        <b-form-invalid-feedback
+          :id="`input-block__invalid-feedback-${block.model}`"
+        >
           {{ block.error }}
         </b-form-invalid-feedback>
-        <p v-if="block.model == 'password'" class="input-block__description">
+        <p
+v-if="block.model == 'password'" class="input-block__description"
+>
           Пароль должен содержать не менее 8 символов, должны присутствоввать
           строчные и заглавные буквы, должны присутствовать цифры.
         </p>
       </form-group>
     </div>
-    <button type="submit" class="button signup1__button">
+    <button
+type="submit" class="button signup1__button">
       ДАЛЕЕ
     </button>
   </form>
 </template>
 
 <script>
-import {
-  required,
-  minLength,
-  sameAs,
-} from 'vuelidate/lib/validators';
+import { required, minLength, sameAs } from "vuelidate/lib/validators";
 
 export default {
-  name: 'SignUp2',
+  name: "SignUp2",
   data() {
     return {
       blocks: [
-        { title: 'Логин *', model: 'login', error: 'Обязательное поле, минимум 4 символа.', },
-        { title: 'Пароль *', model: 'password', error: 'Пароль не соответствует правилам.', },
-        { title: 'Подтверждение пароля *', model: 'passwordRepeat', error: 'Пароли должны совпадать.', },
+        {
+          title: "Логин *",
+          model: "login",
+          error: "Обязательное поле, минимум 4 символа."
+        },
+        {
+          title: "Пароль *",
+          model: "password",
+          error: "Пароль не соответствует правилам."
+        },
+        {
+          title: "Подтверждение пароля *",
+          model: "passwordRepeat",
+          error: "Пароли должны совпадать."
+        }
       ],
-      login: '',
-      password: '',
-      passwordRepeat: '',
+      login: "",
+      password: "",
+      passwordRepeat: ""
     };
   },
   validations: {
     login: {
       required,
-      minLength: minLength(4),
+      minLength: minLength(4)
     },
     password: {
       required,
-      goodPassword: (password) => {
-        return password.length >= 8 &&
-        /[a-z]/.test(password) &&
-        /[A-Z]/.test(password) &&
-        /[0-9]/.test(password);
-      },
+      goodPassword: password => {
+        return (
+          password.length >= 8 &&
+          /[a-z]/.test(password) &&
+          /[A-Z]/.test(password) &&
+          /[0-9]/.test(password)
+        );
+      }
     },
     passwordRepeat: {
       required,
-      sameAsPassword: sameAs('password'),
-    },
+      sameAsPassword: sameAs("password")
+    }
   },
   methods: {
     submit() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        this.$emit('next', 'SignUp2');
+        this.$emit("next", "SignUp2");
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -92,8 +112,8 @@ export default {
   &__button {
     padding: 15px 45px;
     margin-bottom: 50px;
-    background: #FFFFFF;
-    border: 2px solid #31B0CE;
+    background: #ffffff;
+    border: 2px solid #31b0ce;
     box-sizing: border-box;
     border-radius: 25px;
     font-family: Ubuntu;
@@ -102,13 +122,13 @@ export default {
     font-size: 18px;
     line-height: 21px;
     text-align: center;
-    color: #10B2D6;
+    color: #10b2d6;
   }
 }
 
 .input-block {
   &__title {
-    color: #8D8D8D;
+    color: #8d8d8d;
     text-align: left;
     font-size: 16px;
     font-size: responsive 13px 16px;
@@ -121,7 +141,7 @@ export default {
     width: 300px;
     border: 0;
     border-radius: 0;
-    border-bottom: 2px solid #8D8D8D;
+    border-bottom: 2px solid #8d8d8d;
     padding: 10px 0;
 
     &:focus {
