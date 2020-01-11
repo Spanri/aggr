@@ -1,27 +1,24 @@
 <template>
-  <button
-    class="button"
-    :class="type ? 'button__type_1' : 'button__type_0'"
-  >
-    <slot class="button__slot" />
+  <button class="ui-button" :class="type ? 'ui-button__type_1' : 'ui-button__type_0'">
+    <slot class="ui-button__slot" />
   </button>
 </template>
 
 <script>
 export default {
-  name: "Button",
+  name: "UiButton",
   props: {
     // false - backg accent, true - backg light
     type: {
       type: Boolean,
-      default: false,
-    },
-  },
+      default: false
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-.button {
+.ui-button {
   all: unset;
   background: none;
   border: 0;
@@ -30,25 +27,21 @@ export default {
   border: 2px solid $color-accent;
 
   &__type {
-
     &_0 {
       background: $color-accent;
-      color: $color-gray-light;
+      color: $white;
 
       &:hover {
         cursor: pointer;
-        background: $color-gray-light;
+        background: $white;
         color: $color-accent;
       }
-
     }
 
     &_1 {
-      background: $color-gray-light;
+      background: $white;
       color: $color-accent;
     }
-
   }
-
 }
 </style>

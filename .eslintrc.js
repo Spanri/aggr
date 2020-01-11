@@ -8,10 +8,15 @@ module.exports = {
     parser: "babel-eslint"
   },
   extends: [
-    // "@nuxtjs",
+    //"@nuxtjs",
     "plugin:nuxt/recommended",
-    "eslint:recommended",
+    "eslint:recommended"
+
+    // "plugin:vue/recommended",
+    // "plugin:prettier/recommended"
   ],
+  // required to lint *.vue files
+  plugins: ["vue"],
   // add your custom rules here
   rules: {
     // "vue/max-attributes-per-line": ["error", {
@@ -21,10 +26,11 @@ module.exports = {
     //     "allowFirstLine": false,
     //   },
     // },],
-    "semi": [2, "always"],
+    semi: [2, "always"],
     "no-extra-semi": "warn",
     "no-console": "off",
-    "comma-dangle": [2, "always"],
-    "space-before-function-paren": [2, "never"],
-  },
-}
+    "comma-dangle": ["error", "never"],
+    "space-before-function-paren": [2, "never"]
+      // "prettier/prettier": ["error", { semi: false }]
+  }
+};
