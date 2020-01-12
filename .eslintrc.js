@@ -9,11 +9,11 @@ module.exports = {
   },
   extends: [
     //"@nuxtjs",
-    "plugin:nuxt/recommended",
-    "eslint:recommended"
+    // "plugin:nuxt/recommended",
+    "eslint:recommended",
 
-    // "plugin:vue/recommended",
-    // "plugin:prettier/recommended"
+    // "plugin:vue/recommended"
+    "plugin:prettier/recommended"
   ],
   // required to lint *.vue files
   plugins: ["vue"],

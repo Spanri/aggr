@@ -1,8 +1,6 @@
 <template>
   <div class="login-wrapper">
-    <form
-class="login" @submit.prevent="submit"
->
+    <form class="login" @submit.prevent="submit">
       <h1 class="login__title">
         Вход
       </h1>
@@ -10,10 +8,10 @@ class="login" @submit.prevent="submit"
         Номер телефона *
       </p>
       <Input
-        v-model="$v.username.model"
+        v-model="username"
+        :v="$v.username"
         class="input login__input login__input_username"
         placeholder="Введите номер телефона"
-        :aria-describedby="`login__invalid-feedback-username`"
       />
       <!-- <b-form-input
         v-model="$v.username.$model"
@@ -30,7 +28,8 @@ class="login" @submit.prevent="submit"
         Номер телефона *
       </p>
       <Input
-        v-model="$v.password.model"
+        v-model="password"
+        :v="$v.password"
         class="input login__input login__input_password"
         placeholder="Введите пароль"
         type="password"
@@ -47,11 +46,10 @@ class="login" @submit.prevent="submit"
       <b-form-invalid-feedback :id="`login__invalid-feedback-password`">
         Обязательное поле.
       </b-form-invalid-feedback>
-      <button
-class="button login__button" type="submit">
+      <button class="button login__button" type="submit">
         Войти
       </button>
-      <br>
+      <br />
       <div class="login__link_password">
         <nuxt-link to>
           Забыли пароль?
@@ -117,7 +115,7 @@ export default {
 .login {
   height: 537px;
   width: 450px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 20px rgba($black, 0.25);
   border-radius: 20px;
 
   &-wrapper {
@@ -138,13 +136,6 @@ export default {
   }
 
   &__input {
-    margin: 0 auto 50px;
-    width: 300px;
-    border: 0;
-    border-radius: 0;
-    border-bottom: 2px solid #8d8d8d;
-    padding: 10px 0;
-
     &-title {
       color: #8d8d8d;
       text-align: left;
@@ -153,24 +144,11 @@ export default {
       margin: 0 auto;
       width: 300px;
     }
-
-    &:focus {
-      border: 0;
-      box-shadow: 0;
-    }
-
-    &::placeholder {
-      color: #464646;
-    }
-
-    &:-webkit-autofill {
-      -webkit-text-fill-color: rgb(52, 42, 199) !important;
-    }
   }
 
   &__button {
     padding: 15px 45px;
-    background: #ffffff;
+    background: $white;
     border: 2px solid #31b0ce;
     box-sizing: border-box;
     border-radius: 25px;
