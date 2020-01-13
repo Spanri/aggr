@@ -21,9 +21,9 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "[css]": {
-    "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
-  },
+  // "[css]": {
+  //   "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
+  // },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -40,7 +40,23 @@
   "eslint.enable": true,
   "eslint.workingDirectories": ["."],
 
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+  // "editor.codeActionsOnSave": {
+  //   "source.fixAll.eslint": true
+  // },
+
+  // Vetur
+  "vetur.validation.template": false
 }
+
+// Global settings
+// {
+//   "diffEditor.ignoreTrimWhitespace": false,
+//   "window.zoomLevel": 0,
+//   "[javascript]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode"
+//   }
+//   // "editor.tabSize": 2,
+//   // "javascript.validate.enable": false,
+//   // "editor.formatOnSave": true,
+//   // "prettier.tabWidth": 10
+// }
