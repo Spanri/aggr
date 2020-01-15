@@ -27,33 +27,27 @@
 
 export default {
 	name: "Signup",
+
+	layout: "empty",
+
 	components: {
-		SignUp1: () => import("@/components/Signup1.vue"),
-		SignUp2: () => import("@/components/Signup2.vue")
+		Signup1: () => import("@components/Signup1.vue"),
+		Signup2: () => import("@components/Signup2.vue"),
 		// SignUp3: () => import('@/components/SignUp3.vue'),
 	},
+
 	data() {
 		return {
-			signUpPhase: "Signup1"
-		}
+			signUpPhase: "Signup1",
+		};
 	},
+
 	methods: {
 		next(component) {
-			this.signUpPhase = component
+			this.signUpPhase = component;
 		},
-		submit() {
-			this.$v.$touch()
-			if (!this.$v.$invalid) {
-				alert("Ошибок в заполнении формы нет, но и вход пока не реализован.")
-				// const { username, password, } = this;
-				// this.$store.dispatch(AUTH_REQUEST, { username, password, }).then(() => {
-				//   // this.$router.push('/home');
-				//   console.log('isAuthenticated', this.$store.getters.isAuthenticated);
-				// });
-			}
-		}
-	}
-}
+	},
+};
 </script>
 
 <style scoped lang="scss">

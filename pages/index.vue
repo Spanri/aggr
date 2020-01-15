@@ -1,16 +1,16 @@
 <template>
-  <div class="index">Главная</div>
+	<div class="index">Главная</div>
 </template>
 
 <script>
 export default {
-  name: "Index"
+	name: "Index",
 };
 </script>
 
 <style lang="scss">
 .index {
-  margin: 0 auto;
-  text-align: center;
+	margin: 0 auto;
+	text-align: center;
 }
 </style>
