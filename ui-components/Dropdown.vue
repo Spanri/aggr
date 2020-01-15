@@ -1,3 +1,5 @@
 <template>
-	<div class="ui-dropdown"></div>
+	<div class="ui-dropdown">
+		<span>DROPDOWN</span>
+	</div>
 </template>

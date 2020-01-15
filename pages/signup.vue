@@ -6,7 +6,7 @@
 					v-for="item in 4"
 					:key="item"
 					class="signup__nav-item"
-					:class="signUpPhase == `SignUp${item}` ? 'signup__nav-item_selected' : ''"
+					:class="signUpPhase == `Signup${item}` ? 'signup__nav-item_selected' : ''"
 				>
 					{{ item }}
 				</span>
@@ -18,13 +18,6 @@
 </template>
 
 <script>
-// import {
-//   required,
-// } from 'vuelidate/lib/validators';
-// import {
-//   AUTH_REQUEST,
-// } from '../store/mutations-type';
-
 export default {
 	name: "Signup",
 
@@ -33,7 +26,8 @@ export default {
 	components: {
 		Signup1: () => import("@components/Signup1.vue"),
 		Signup2: () => import("@components/Signup2.vue"),
-		// SignUp3: () => import('@/components/SignUp3.vue'),
+		Signup3: () => import("@components/Signup3.vue"),
+		Signup4: () => import("@components/Signup4.vue"),
 	},
 
 	data() {
@@ -93,6 +87,7 @@ export default {
 			font-family: Ubuntu;
 			font-size: 22px;
 			font-size: responsive 20px 24px;
+			user-select: none;
 
 			&_selected {
 				background-color: #10b2d6;

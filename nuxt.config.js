@@ -1,7 +1,5 @@
 require("dotenv").config();
 
-console.log(this.buildContext);
-
 export default {
   mode: "universal",
   /*
@@ -41,7 +39,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: "~/plugins/vuex-persist", ssr: false }, "~/plugins/vuelidate.js"],
+  plugins: [
+    { src: "~/plugins/vuex-persist", ssr: false },
+    "~/plugins/vuelidate.js",
+    "~plugins/vue-js-modal.js",
+  ],
   /*
    ** Nuxt.js dev-modules
    */

@@ -18,6 +18,7 @@
 			</form>
 		</div>
 		<Button type="submit" :themeType="true" class="button signup1__button">ДАЛЕЕ</Button>
+		<v-dialog />
 	</form>
 </template>
 
@@ -90,7 +91,15 @@ export default {
 			if (!this.$v.$invalid) {
 				this.$emit("next", "Signup2");
 			} else {
-				alert("Ошибки в заполнении формы.");
+				this.$modal.show("dialog", {
+					title: "Ошибка",
+					text: "Форма заполнена неверно",
+					buttons: [
+						{
+							title: "Закрыть",
+						},
+					],
+				});
 			}
 		},
 	},

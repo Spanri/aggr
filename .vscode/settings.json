@@ -24,9 +24,9 @@
 	// "[css]": {
 	//   "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
 	// },
-	// "[javascript]": {
-	//   "editor.defaultFormatter": "esbenp.prettier-vscode"
-	// },
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 
 	"[json]": {
 		"editor.defaultFormatter": "vscode.json-language-features"

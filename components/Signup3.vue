@@ -1,27 +1,36 @@
 <template>
-	<form class="signup2" @submit.prevent="onSubmit">
-		<p class="input-block__title">Кто вы?</p>
-		<!-- <b-form-select
+	<div>
+		<form class="signup3" @submit.prevent="onSubmit">
+			<p class="input-block__title">Кто вы 2?</p>
+			<!-- <b-form-select
 			v-model="status"
 			:options="[
 				{ value: 'study11', text: 'Учусь в 11 классе' },
 				{ value: 'study11-', text: 'Учусь в классе меньше 11' },
 			]"
 		/> -->
-		<Dropdown />
-		<Button @click="onPrev()" :themeType="true" class="button signup2__button signup2__button_prev">
+			<Dropdown />
+			<Button
+				@click="onPrev()"
+				:themeType="true"
+				class="button signup3__button signup3__button_prev"
+			>
+				НАЗАД
+			</Button>
+			<Button type="submit" :themeType="true" class="button signup3__button signup3__button_next">
+				ДАЛЕЕ
+			</Button>
+			<v-dialog />
+		</form>
+		<!-- <Button @click="onPrev" :themeType="true" class="button signup3__button signup3__button_prev">
 			НАЗАД
-		</Button>
-		<Button type="submit" :themeType="true" class="button signup2__button signup2__button_next">
-			ДАЛЕЕ
-		</Button>
-		<v-dialog />
-	</form>
+		</Button> -->
+	</div>
 </template>
 
 <script>
 export default {
-	name: "Signup2",
+	name: "Signup3",
 
 	components: {
 		Dropdown: () => import("@ui-components/Dropdown.vue"),
@@ -36,18 +45,18 @@ export default {
 
 	methods: {
 		onSubmit() {
-			this.$emit("next", "Signup3");
+			this.$emit("next", "Signup4");
 		},
 
 		onPrev() {
-			this.$emit("next", "Signup1");
+			this.$emit("next", "Signup2");
 		},
 	},
 };
 </script>
 
 <style scoped lang="scss">
-.signup2 {
+.signup3 {
 	&__button {
 		margin-bottom: 50px !important;
 
