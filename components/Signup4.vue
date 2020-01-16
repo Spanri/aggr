@@ -1,13 +1,13 @@
 <template>
 	<form class="signup4" @submit.prevent="onSubmit">
 		<p class="input-block__title">Кто вы 3?</p>
-		<b-form-select
+		<!-- <b-form-select
 			v-model="status"
 			:options="[
 				{ value: 'study11', text: 'Учусь в 11 классе' },
 				{ value: 'study11-', text: 'Учусь в классе меньше 11' },
 			]"
-		/>
+		/> -->
 		<Button @click="onPrev()" :themeType="true" class="button signup4__button signup3__button_prev">
 			НАЗАД
 		</Button>
@@ -23,7 +23,7 @@ export default {
 	name: "Signup4",
 
 	components: {
-		Dropdown: () => import("@ui-components/Dropdown.vue"),
+		Dropdown: () => import("@ui-components/dropdown/Dropdown.vue"),
 		Button: () => import("@ui-components/Button.vue"),
 	},
 

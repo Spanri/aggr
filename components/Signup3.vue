@@ -33,7 +33,7 @@ export default {
 	name: "Signup3",
 
 	components: {
-		Dropdown: () => import("@ui-components/Dropdown.vue"),
+		Dropdown: () => import("@ui-components/dropdown/Dropdown.vue"),
 		Button: () => import("@ui-components/Button.vue"),
 	},
 

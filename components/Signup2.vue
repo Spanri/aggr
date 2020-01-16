@@ -8,7 +8,9 @@
 				{ value: 'study11-', text: 'Учусь в классе меньше 11' },
 			]"
 		/> -->
-		<Dropdown />
+		<Dropdown v-show="true" flow="horizontal" v-model="dropdown" :items="dropdowns2">
+			<Link to>Кликнуть сюда 1, horizontal</Link>
+		</Dropdown>
 		<Button @click="onPrev()" :themeType="true" class="button signup2__button signup2__button_prev">
 			НАЗАД
 		</Button>
@@ -24,7 +26,7 @@ export default {
 	name: "Signup2",
 
 	components: {
-		Dropdown: () => import("@ui-components/Dropdown.vue"),
+		Dropdown: () => import("@ui-components/dropdown/Dropdown.vue"),
 		Button: () => import("@ui-components/Button.vue"),
 	},
 

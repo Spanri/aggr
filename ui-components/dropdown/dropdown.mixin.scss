@@ -1,0 +1,78 @@
+@mixin dropdown {
+	.slide-fade-enter-active {
+		transition: all 0.3s ease;
+	}
+	.slide-fade-leave-active {
+		transition: all 0.2s ease;
+	}
+	.slide-fade-enter {
+		transform: translateY(-50px);
+		opacity: 0;
+	}
+	.slide-fade-leave-to {
+		transform: translateY(-50px);
+		opacity: 0;
+	}
+
+	.ui-dropdown {
+		user-select: none;
+		overflow-y: auto;
+
+		background: $white;
+		width: 170px;
+		border-radius: 5px;
+		box-shadow: 0 4px 28px #3b4a7426, 0 4px 10px #3b4a7426;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+
+		&-wrapper {
+			position: relative;
+		}
+
+		&__content {
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		&__item {
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			margin: 0;
+			padding: 10px 0;
+
+			&.active {
+				background: $color-accent;
+				color: $white;
+
+				&:hover {
+					color: $white;
+				}
+			}
+
+			&.disable {
+				color: $gray;
+				pointer-events: none;
+			}
+
+			&:hover {
+				cursor: pointer;
+				color: $color-accent;
+			}
+		}
+
+		/** Позиция слева или снизу */
+		&__flow {
+			position: absolute;
+			top: var(--top);
+			bottom: var(--bottom);
+			right: var(--right);
+			left: var(--left);
+			z-index: 10;
+		}
+	}
+}
