@@ -1,0 +1,92 @@
+<template>
+	<div class="ui-input-wrapper">
+		<input
+			v-model="inputValue"
+			class="ui-input"
+			@focus="isFocus = true"
+			@blur="isFocus = false"
+			:type="type ? type : 'text'"
+			:placeholder="placeholder ? placeholder : ''"
+		/>
+	</div>
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+	name: "UiInput",
+
+	props: {
+		/**
+		 * Значение, вводимое в инпут
+		 */
+		value: {
+			type: String,
+			require: true,
+		},
+
+		type: String,
+		placeholder: String,
+	},
+
+	data() {
+		return {
+			isFocus: false,
+		};
+	},
+
+	computed: {
+		inputValue: {
+			get() {
+				return this.value;
+			},
+			set(value: any) {
+				this.$emit("input", value);
+			},
+		},
+	},
+});
+</script>
+
+<style lang="scss" scoped>
+.ui-input {
+	margin: 0 auto;
+	// width: 300px;
+	border: 0;
+	border-radius: 0;
+	border-bottom: 2px solid $gray-lightest;
+	padding: 10px 0;
+
+	&__error {
+		margin: 0 auto;
+		// width: 300px;
+		color: $red;
+		margin-top: 10px;
+		text-align: left;
+	}
+
+	&__status {
+		&_error {
+			border-bottom-color: $red;
+		}
+
+		&_success {
+			border-bottom-color: $green;
+		}
+	}
+
+	&:focus {
+		// border: 0;
+		box-shadow: 0;
+	}
+
+	&::placeholder {
+		color: $gray;
+	}
+
+	&:-webkit-autofill {
+		-webkit-text-fill-color: rgb(52, 42, 199) !important;
+	}
+}
+</style>

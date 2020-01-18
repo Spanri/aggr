@@ -43,6 +43,7 @@ export default {
 		{ src: "~/plugins/vuex-persist", ssr: false },
 		"~/plugins/vuelidate.js",
 		"~plugins/vue-js-modal.js",
+		"~plugins/v-click-outside.js",
 	],
 	/*
 	 ** Nuxt.js dev-modules
@@ -95,10 +96,10 @@ export default {
 			 * alias
 			 */
 			const { srcDir } = this.buildContext.options;
-			config.resolve.alias["@assets"] = srcDir + "/assets";
-			config.resolve.alias["@components"] = srcDir + "/components";
-			config.resolve.alias["@ui-components"] = srcDir + "/ui-components";
-			config.resolve.alias["@helpers"] = srcDir + "/helpers";
+			config.resolve.alias["@assets"] = srcDir + "\\assets";
+			config.resolve.alias["@components"] = srcDir + "\\components";
+			config.resolve.alias["@ui-components"] = srcDir + "\\ui-components";
+			config.resolve.alias["@helpers"] = srcDir + "\\helpers";
 			// console.log(config.resolve.alias);
 			/**
 			 * eslint settings

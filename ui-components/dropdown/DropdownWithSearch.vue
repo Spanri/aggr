@@ -9,7 +9,7 @@
 					class="ui-dropdown__input"
 					type="text"
 					title="Введите значение для поиска"
-					placeholder="Поиск по значениям"
+					placeholder="Поиск"
 					v-model="filterValue"
 					size="small"
 				/>
@@ -45,7 +45,7 @@ export default {
 	mixins: [dropdownMixin],
 
 	components: {
-		InputWithoutValidation: () => import("@gl_components/ui/input/InputWithoutValidation"),
+		InputWithoutValidation: () => import("@ui-components/input/InputWithoutValidation.vue"),
 	},
 
 	data() {
@@ -100,7 +100,7 @@ export default {
 			padding-right: 30px;
 		}
 
-		&::before {
+		&:before {
 			content: "\e915";
 			pointer-events: none;
 			width: 15px;
@@ -113,7 +113,7 @@ export default {
 	}
 
 	&__items {
-		width: 100%;
+		// width: 100%;
 		max-height: 200px;
 		overflow-y: auto;
 	}

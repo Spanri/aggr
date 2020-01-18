@@ -74,15 +74,15 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .ui-input {
 	margin: 0 auto;
-	width: 300px;
+	// width: 300px;
 	border: 0;
 	border-radius: 0;
 	border-bottom: 2px solid $gray-lightest;
 	padding: 10px 0;
 
 	&__error {
-		margin: 0 auto;
-		width: 300px;
+		// margin: 0 auto;
+		// width: 300px;
 		color: $red;
 		margin-top: 10px;
 		text-align: left;

@@ -1,15 +1,43 @@
 <template>
 	<div class="ui-kit">
 		<details class="ui-kit__input ui-kit__details">
-			<summary class="ui-kit__summary">Input</summary>
+			<summary class="ui-kit__summary">Input с валидацией и без неё</summary>
 			<div class="ui-kit__content">
 				<Input :v="$v.input" v-model="input" errorDescription="Обязательное поле >= 3 символа." />
+			</div>
+			<div class="ui-kit__content">
+				<InputWithoutValidation v-model="input" />
 			</div>
 		</details>
 		<details class="ui-kit__button ui-kit__details">
 			<summary class="ui-kit__summary">Button</summary>
 			<div class="ui-kit__content">
 				<Button>Какая-то кнопка</Button>
+			</div>
+		</details>
+		<details class="ui-kit__dropdown ui-kit__details">
+			<summary class="ui-kit__summary">Dropdown без поиска и с ним</summary>
+			<div class="ui-kit__content">
+				Выбранное значение: {{ dropdown }}
+				<br />
+				<Dropdown
+					class="ui-kit__dropdown-item"
+					v-show="true"
+					flow="horizontal"
+					v-model="dropdown"
+					:items="dropdowns"
+				>
+					Дропдаун без поиска горизонтальный
+				</Dropdown>
+				<DropdownWithSearch
+					class="ui-kit__dropdown-item"
+					v-show="true"
+					flow="horizontal"
+					v-model="dropdown"
+					:items="dropdowns"
+				>
+					Дропдаун с поиском вертикальный
+				</DropdownWithSearch>
 			</div>
 		</details>
 	</div>
@@ -23,13 +51,22 @@ export default Vue.extend({
 	name: "UiKit",
 
 	components: {
-		Input: () => import("@ui-components/Input.vue"),
+		Input: () => import("@ui-components/input/Input.vue"),
+		InputWithoutValidation: () => import("@ui-components/input/InputWithoutValidation.vue"),
 		Button: () => import("@ui-components/Button.vue"),
+		Dropdown: () => import("@ui-components/dropdown/Dropdown.vue"),
+		DropdownWithSearch: () => import("@ui-components/dropdown/DropdownWithSearch.vue"),
 	},
 
 	data() {
 		return {
 			input: "",
+			dropdown: {},
+			dropdowns: [
+				{ text: "one cat and four dogs" },
+				{ text: "two roses" },
+				{ text: "million one" },
+			],
 		};
 	},
 
@@ -60,6 +97,17 @@ export default Vue.extend({
 
 	&__content {
 		margin: 10px;
+	}
+
+	&__dropdown {
+		&-item {
+			min-width: 200px;
+			margin-top: 30px;
+			width: min-content;
+
+			/deep/.ui-dropdown__content {
+			}
+		}
 	}
 }
 </style>

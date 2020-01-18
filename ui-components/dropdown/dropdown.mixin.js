@@ -95,7 +95,7 @@ export default {
 		 * Для вычисления styleObject, то есть
 		 * положения dropdown относительно slot
 		 */
-		onScrollWindow(e) {
+		onScrollWindow() {
 			if (this.isDropdownShow) {
 				const styles = { "--right": "auto", "--left": 0, "--bottom": "auto", "--top": 0 };
 

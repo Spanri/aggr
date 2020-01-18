@@ -29,7 +29,7 @@ export default {
 	name: "Signup2",
 
 	components: {
-		Input: () => import("@ui-components/Input.vue"),
+		Input: () => import("@ui-components/input/Input.vue"),
 		Button: () => import("@ui-components/Button.vue"),
 	},
 
@@ -125,6 +125,17 @@ export default {
 
 	&__input {
 		margin-bottom: 40px;
+		margin: 0 auto;
+		margin-bottom: 40px;
+
+		/deep/.ui-input {
+			width: 300px;
+		}
+
+		/deep/.ui-input__error {
+			width: 300px;
+			margin: 0 auto;
+		}
 	}
 
 	&__description {
