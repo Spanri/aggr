@@ -90,7 +90,11 @@ export default {
 		submit() {
 			this.$v.$touch();
 			if (!this.$v.$invalid) {
-				this.$emit("next", "Signup2");
+				this.$emit("next", {
+					phase: "Signup2",
+					isAdd: true,
+					data: { username: this.username, password: this.password },
+				});
 			} else {
 				this.$modal.show("dialog", {
 					title: "Ошибка",
@@ -108,6 +112,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "./signup.mixin.scss";
+@include input-block();
+
 .signup1 {
 	&__button {
 		margin-bottom: 50px !important;
@@ -115,15 +122,6 @@ export default {
 }
 
 .input-block {
-	&__title {
-		color: $gray-lightest;
-		text-align: left;
-		font-size: 16px;
-		font-size: responsive 13px 16px;
-		margin: 0 auto;
-		width: 300px;
-	}
-
 	&__input {
 		margin-bottom: 40px;
 		margin: 0 auto;
@@ -137,16 +135,6 @@ export default {
 			width: 300px;
 			margin: 0 auto;
 		}
-	}
-
-	&__description {
-		width: 300px;
-		margin: 0 auto;
-		margin-bottom: 50px;
-		color: $gray;
-		text-align: left;
-		font-size: 16px;
-		font-size: responsive 13px 16px;
 	}
 }
 

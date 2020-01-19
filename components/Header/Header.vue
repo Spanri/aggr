@@ -34,7 +34,7 @@ export default Vue.extend({
 	data() {
 		return {
 			items: [
-				{ title: "ПУНКТ 1", href: "/" },
+				{ title: "UI kit", href: "/ui-kit" },
 				{ title: "ПУНКТ 2", href: "/" },
 				{ title: "ПУНКТ 3", href: "/" },
 				{ title: "ПУНКТ 4", href: "/" },

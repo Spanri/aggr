@@ -1,0 +1,21 @@
+@mixin input-block {
+  .input-block {
+    &__title {
+      color: $gray-lightest;
+      text-align: left;
+      font-size: 16px;
+      font-size: responsive 13px 16px;
+      margin: 0 auto;
+      width: 300px;
+    }
+    &__description {
+      width: 300px;
+      margin: 0 auto;
+      margin-bottom: 50px;
+      color: $gray;
+      text-align: left;
+      font-size: 16px;
+      font-size: responsive 13px 16px;
+    }
+  }
+}

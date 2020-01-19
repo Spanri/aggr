@@ -6,13 +6,13 @@
 					v-for="item in 4"
 					:key="item"
 					class="signup__nav-item"
-					:class="signUpPhase == `Signup${item}` ? 'signup__nav-item_selected' : ''"
+					:class="signupPhase == `Signup${item}` ? 'signup__nav-item_selected' : ''"
 				>
 					{{ item }}
 				</span>
 			</nav>
 			<h1 class="signup__title">Регистрация</h1>
-			<component :is="signUpPhase" @next="next" />
+			<component :is="signupPhase" @next="next" />
 		</div>
 	</div>
 </template>
@@ -33,12 +33,17 @@ export default {
 	data() {
 		return {
 			signupPhase: "Signup1",
+			data: {},
 		};
 	},
 
 	methods: {
 		next(component) {
-			this.signupPhase = component;
+			if (component.isAdd) {
+				this.data = { ...this.data, ...component.data };
+			}
+			console.log(this.data);
+			this.signupPhase = component.phase;
 		},
 	},
 };

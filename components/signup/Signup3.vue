@@ -45,11 +45,20 @@ export default {
 
 	methods: {
 		onSubmit() {
-			this.$emit("next", "Signup4");
+			this.$emit("next", {
+				phase: "Signup4",
+				isAdd: true,
+				data: {},
+			});
 		},
 
 		onPrev() {
 			this.$emit("next", "Signup2");
+			this.$emit("next", {
+				phase: "Signup2",
+				isAdd: false,
+				data: {},
+			});
 		},
 	},
 };
@@ -63,27 +72,6 @@ export default {
 		& + & {
 			margin-left: 15px;
 		}
-	}
-}
-
-.input-block {
-	&__title {
-		color: #8d8d8d;
-		text-align: left;
-		font-size: 16px;
-		font-size: responsive 13px 16px;
-		margin: 0 auto;
-		width: 300px;
-	}
-
-	&__description {
-		width: 300px;
-		margin: 0 auto;
-		margin-bottom: 50px;
-		color: #212529;
-		text-align: left;
-		font-size: 16px;
-		font-size: responsive 13px 16px;
 	}
 }
 </style>

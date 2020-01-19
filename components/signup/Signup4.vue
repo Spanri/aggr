@@ -1,13 +1,6 @@
 <template>
 	<form class="signup4" @submit.prevent="onSubmit">
 		<p class="input-block__title">Кто вы 3?</p>
-		<!-- <b-form-select
-			v-model="status"
-			:options="[
-				{ value: 'study11', text: 'Учусь в 11 классе' },
-				{ value: 'study11-', text: 'Учусь в классе меньше 11' },
-			]"
-		/> -->
 		<Button @click="onPrev()" :themeType="true" class="button signup4__button signup3__button_prev">
 			НАЗАД
 		</Button>
@@ -47,59 +40,22 @@ export default {
 		},
 
 		onPrev() {
-			this.$emit("next", "Signup3");
+			this.$emit("next", {
+				phase: "Signup3",
+				data: {},
+			});
 		},
 	},
 };
 </script>
 
 <style scoped lang="scss">
+@import "./signup.mixin.scss";
+@include input-block();
+
 .signup4 {
 	&__button {
 		margin-bottom: 50px !important;
-	}
-}
-
-.input-block {
-	&__title {
-		color: #8d8d8d;
-		text-align: left;
-		font-size: 16px;
-		font-size: responsive 13px 16px;
-		margin: 0 auto;
-		width: 300px;
-	}
-
-	&__input {
-		margin: 0 auto 50px;
-		width: 300px;
-		border: 0;
-		border-radius: 0;
-		border-bottom: 2px solid #8d8d8d;
-		padding: 10px 0;
-
-		&:focus {
-			border: 0;
-			box-shadow: 0;
-		}
-
-		&::placeholder {
-			color: #464646;
-		}
-
-		&:-webkit-autofill {
-			-webkit-text-fill-color: rgb(52, 42, 199) !important;
-		}
-	}
-
-	&__description {
-		width: 300px;
-		margin: 0 auto;
-		margin-bottom: 50px;
-		color: #212529;
-		text-align: left;
-		font-size: 16px;
-		font-size: responsive 13px 16px;
 	}
 }
 
