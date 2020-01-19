@@ -43,6 +43,7 @@ export default {
 	data() {
 		return {
 			status: "",
+			statuses: [{ text: "3434" }],
 		};
 	},
 
@@ -78,6 +79,7 @@ export default {
 .signup3 {
 	&__button {
 		margin-bottom: 50px !important;
+		user-select: none;
 
 		& + & {
 			margin-left: 15px;

@@ -1,8 +1,6 @@
 <template>
 	<div class="loader">
-		<a href class="loader__link">
-			<img src="@/assets/images/loader.png" alt />
-		</a>
+		<i class="icon-spinner" />
 	</div>
 </template>
 

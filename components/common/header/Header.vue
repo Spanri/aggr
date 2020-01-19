@@ -5,7 +5,7 @@
 				<Logo class="header__logo" />
 			</nuxt-link>
 			<HeaderNav class="header__nav" :items="items" />
-			<nuxt-link to="/login" class="header__profile header__profile_false">
+			<nuxt-link to="/auth/login" class="header__profile header__profile_false">
 				<span class="header__profile-text">Войти</span>
 				<span class="header__profile-logo icon-person" />
 			</nuxt-link>
@@ -14,7 +14,7 @@
       >
         <span class="header__profile-text">Войти</span>
         <LogoProfile class="header__profile-logo"/>
-      </div>-->
+			</div>-->
 		</header>
 	</div>
 </template>
@@ -27,15 +27,15 @@ export default Vue.extend({
 
 	components: {
 		Logo: () => import("@assets/svg/logo.svg"),
-		HeaderNav: () => import("@components/Header/HeaderNav.vue"),
+		HeaderNav: () => import("./HeaderNav.vue"),
 		LogoProfile: () => import("@assets/svg/logoProfile.svg"),
 	},
 
 	data() {
 		return {
 			items: [
-				{ title: "UI kit", href: "/ui-kit" },
-				{ title: "ПУНКТ 2", href: "/" },
+				{ title: "ГЛАВНАЯ", href: "/" },
+				{ title: "UI KIT", href: "/ui-kit" },
 				{ title: "ПУНКТ 3", href: "/" },
 				{ title: "ПУНКТ 4", href: "/" },
 				{ title: "ПУНКТ 5", href: "/" },

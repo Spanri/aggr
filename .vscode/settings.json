@@ -1,20 +1,5 @@
 {
 	"javascript.format.enable": false,
-	// "eslint.autoFixOnSave": true,
-	// "eslint.validate": [
-	//   {
-	//     "language": "vue",
-	//     "autoFix": true
-	//   },
-	//   {
-	//     "language": "html",
-	//     "autoFix": true
-	//   },
-	//   {
-	//     "language": "javascript",
-	//     "autoFix": true
-	//   }
-	// ],
 
 	// Formatters
 	"javascript.preferences.quoteStyle": "double",
@@ -44,23 +29,6 @@
 	"eslint.enable": true,
 	"eslint.workingDirectories": ["."],
 
-	// "editor.codeActionsOnSave": {
-	//   "source.fixAll.eslint": true
-	// },
-
 	// Vetur
 	"vetur.validation.template": false
 }
-
-// Global settings
-// {
-//   "diffEditor.ignoreTrimWhitespace": false,
-//   "window.zoomLevel": 0,
-//   "[javascript]": {
-//     "editor.defaultFormatter": "esbenp.prettier-vscode"
-//   }
-//   // "editor.tabSize": 2,
-//   // "javascript.validate.enable": false,
-//   // "editor.formatOnSave": true,
-//   // "prettier.tabWidth": 10
-// }

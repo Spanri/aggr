@@ -22,13 +22,16 @@
 			<Button class="login__button" :themeType="true" type="submit">Войти</Button>
 			<br />
 			<p class="login__link-wrapper login__remember-password">
-				<nuxt-link class="login__link login__link_password" to>Забыли пароль?</nuxt-link>
+				<nuxt-link class="login__link login__link_password" to>
+					Забыли пароль? (ничего нет)
+				</nuxt-link>
 			</p>
 			<p class="login__link-wrapper login__signup">
 				Нет аккаунта?
 				<nuxt-link class="login__link login__link_signup" to="signup">Зарегистрироваться</nuxt-link>
 			</p>
 		</form>
+		<v-dialog />
 	</div>
 </template>
 
@@ -39,7 +42,7 @@ import { required } from "vuelidate/lib/validators";
 // } from '../store/mutations-type';
 
 export default {
-	name: "Login",
+	name: "AuthLogin",
 
 	layout: "empty",
 
@@ -69,14 +72,37 @@ export default {
 		onSubmit() {
 			this.$v.$touch();
 			if (!this.$v.$invalid) {
-				alert("Ошибок в заполнении формы нет, но и вход пока не реализован.");
+				this.$modal.show("dialog", {
+					title: "Вход",
+					text: "Форма заполнена верно, но функционал еще не реализован 😓",
+					buttons: [
+						{
+							title: "На главную",
+							handler: () => {
+								this.$router.push("/");
+							},
+						},
+						{
+							title: "Закрыть",
+						},
+					],
+				});
 				// const { username, password, } = this;
 				// this.$store.dispatch(AUTH_REQUEST, { username, password, }).then(() => {
 				//   // this.$router.push('/home');
 				//   console.log('isAuthenticated', this.$store.getters.isAuthenticated);
 				// });
 			} else {
-				alert("Ошибки в заполнении формы.");
+				this.$modal.show("dialog", {
+					title: "Ошибка",
+					text: "Форма заполнена неверно",
+					buttons: [
+						{
+							title: "Закрыть",
+							default: true,
+						},
+					],
+				});
 			}
 		},
 	},

@@ -3,9 +3,11 @@
 		<details class="ui-kit__input ui-kit__details">
 			<summary class="ui-kit__summary">Input с валидацией и без неё</summary>
 			<div class="ui-kit__content">
+				С валидацией:
 				<Input :v="$v.input" v-model="input" errorDescription="Обязательное поле >= 3 символа." />
 			</div>
 			<div class="ui-kit__content">
+				Без валидации:
 				<InputWithoutValidation v-model="input" />
 			</div>
 		</details>
@@ -13,6 +15,9 @@
 			<summary class="ui-kit__summary">Button</summary>
 			<div class="ui-kit__content">
 				<Button>Какая-то кнопка</Button>
+				<Button size="large">Какая-то большая кнопка</Button>
+				<Button size="small">Какая-то маленькая кнопка</Button>
+				<Button :themeType="true">Какая-то другая кнопка</Button>
 			</div>
 		</details>
 		<details class="ui-kit__dropdown ui-kit__details">
@@ -26,8 +31,9 @@
 					flow="horizontal"
 					v-model="dropdown"
 					:items="dropdowns"
+					autoClose
 				>
-					Дропдаун без поиска горизонтальный
+					Дропдаун без поиска горизонтальный и сам закрывается после выбора (кликни)
 				</Dropdown>
 				<DropdownWithSearch
 					class="ui-kit__dropdown-item"
@@ -36,7 +42,7 @@
 					v-model="dropdown"
 					:items="dropdowns"
 				>
-					Дропдаун с поиском вертикальный
+					Дропдаун с поиском вертикальный (кликни)
 				</DropdownWithSearch>
 			</div>
 		</details>
@@ -97,6 +103,11 @@ export default Vue.extend({
 
 	&__content {
 		margin: 10px;
+
+		& > * {
+			margin-right: 5px;
+			margin-bottom: 5px;
+		}
 	}
 
 	&__dropdown {

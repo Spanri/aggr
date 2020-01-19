@@ -98,10 +98,11 @@ export default {
 			} else {
 				this.$modal.show("dialog", {
 					title: "Ошибка",
-					text: "Форма заполнена неверно",
+					text: "Форма заполнена неверно 😓",
 					buttons: [
 						{
 							title: "Закрыть",
+							default: true,
 						},
 					],
 				});
@@ -118,6 +119,7 @@ export default {
 .signup1 {
 	&__button {
 		margin-bottom: 50px !important;
+		user-select: none;
 	}
 }
 
@@ -136,13 +138,5 @@ export default {
 			margin: 0 auto;
 		}
 	}
-}
-
-.invalid-feedback {
-	margin-top: -40px;
-	margin-bottom: 18px;
-
-	font-family: Roboto;
-	font-size: calc(13px + 3 * ((100vw - 420px) / 860));
 }
 </style>

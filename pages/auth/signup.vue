@@ -19,15 +19,16 @@
 
 <script>
 export default {
-	name: "Signup",
+	name: "AuthSignup",
 
 	layout: "empty",
 
 	components: {
-		Signup1: () => import("@components/signup/Signup1.vue"),
-		Signup2: () => import("@components/signup/Signup2.vue"),
-		Signup3: () => import("@components/signup/Signup3.vue"),
-		Signup4: () => import("@components/signup/Signup4.vue"),
+		Signup1: () => import("@components/auth/signup/Signup1.vue"),
+		Signup2: () => import("@components/auth/signup/Signup2.vue"),
+		Signup3: () => import("@components/auth/signup/Signup3.vue"),
+		Signup4: () => import("@components/auth/signup/Signup4.vue"),
+		Signup5: () => import("@components/auth/signup/Signup5.vue"),
 	},
 
 	data() {
@@ -39,11 +40,16 @@ export default {
 
 	methods: {
 		next(component) {
-			if (component.isAdd) {
-				this.data = { ...this.data, ...component.data };
+			if (component.phase == "SignupFinish") {
+				console.log("Завершено!");
+				this.signupPhase = "Signup5";
+			} else {
+				if (component.isAdd) {
+					this.data = { ...this.data, ...component.data };
+				}
+				console.log(this.data);
+				this.signupPhase = component.phase;
 			}
-			console.log(this.data);
-			this.signupPhase = component.phase;
 		},
 	},
 };

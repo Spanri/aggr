@@ -1,9 +1,7 @@
 <template>
 	<form class="signup2" @submit.prevent="onSubmit">
 		<p class="input-block__title">Кто вы?</p>
-		<Dropdown v-show="true" flow="horizontal" v-model="status" :items="statuses">
-			asd {{ status.text }}
-		</Dropdown>
+		<Dropdown flow="vertical" v-model="status" :items="statuses">asd {{ status.text }}</Dropdown>
 		<Button
 			type="button"
 			@click="onPrev()"
@@ -65,6 +63,7 @@ export default {
 .signup2 {
 	&__button {
 		margin-bottom: 50px !important;
+		user-select: none;
 
 		& + & {
 			margin-left: 15px;
