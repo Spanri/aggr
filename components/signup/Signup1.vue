@@ -85,6 +85,7 @@ export default {
 			sameAsPassword: sameAs("password"),
 		},
 	},
+
 	methods: {
 		submit() {
 			this.$v.$touch();

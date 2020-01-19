@@ -17,7 +17,7 @@ export default {
 	name: "DefaultLayout",
 
 	components: {
-		Header: () => import("@components/Header/Header.vue"),
+		Header: () => import("@components/header/Header.vue"),
 		Loader: () => import("@ui-components/Loader.vue"),
 		Footer: () => import("@components/Footer.vue"),
 	},

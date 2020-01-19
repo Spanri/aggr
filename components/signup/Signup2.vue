@@ -8,13 +8,24 @@
 				{ value: 'study11-', text: 'Учусь в классе меньше 11' },
 			]"
 		/> -->
-		<Dropdown v-show="true" flow="horizontal" v-model="dropdown" :items="dropdowns2">
-			<Link to>Кликнуть сюда 1, horizontal</Link>
+		<Dropdown v-show="true" flow="horizontal" v-model="dropdown" :items="dropdowns">
+			asd {{ dropdown.text }}
 		</Dropdown>
-		<Button @click="onPrev()" :themeType="true" class="button signup2__button signup2__button_prev">
+		<Button
+			type="button"
+			@click="onPrev()"
+			:themeType="true"
+			size="large"
+			class="signup2__button signup2__button_prev"
+		>
 			НАЗАД
 		</Button>
-		<Button type="submit" :themeType="true" class="button signup2__button signup2__button_next">
+		<Button
+			type="submit"
+			:themeType="true"
+			size="large"
+			class="signup2__button signup2__button_next"
+		>
 			ДАЛЕЕ
 		</Button>
 		<v-dialog />
@@ -33,6 +44,8 @@ export default {
 	data() {
 		return {
 			status: "",
+			dropdown: "",
+			dropdowns: [{ text: "dfgdfg" }, { text: "d12fg" }],
 		};
 	},
 
@@ -42,6 +55,7 @@ export default {
 		},
 
 		onPrev() {
+			console.log("dfgdgf");
 			this.$emit("next", "Signup1");
 		},
 	},

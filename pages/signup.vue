@@ -24,21 +24,21 @@ export default {
 	layout: "empty",
 
 	components: {
-		Signup1: () => import("@components/Signup1.vue"),
-		Signup2: () => import("@components/Signup2.vue"),
-		Signup3: () => import("@components/Signup3.vue"),
-		Signup4: () => import("@components/Signup4.vue"),
+		Signup1: () => import("@components/signup/Signup1.vue"),
+		Signup2: () => import("@components/signup/Signup2.vue"),
+		Signup3: () => import("@components/signup/Signup3.vue"),
+		Signup4: () => import("@components/signup/Signup4.vue"),
 	},
 
 	data() {
 		return {
-			signUpPhase: "Signup1",
+			signupPhase: "Signup1",
 		};
 	},
 
 	methods: {
 		next(component) {
-			this.signUpPhase = component;
+			this.signupPhase = component;
 		},
 	},
 };
@@ -49,7 +49,7 @@ export default {
 	margin: 70px auto;
 	height: auto;
 	width: 450px;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 0 20px rgba($black, 0.25);
 	border-radius: 20px;
 
 	&-wrapper {
@@ -77,12 +77,12 @@ export default {
 		margin-top: 30px;
 
 		&-item {
-			border: 2px solid #10b2d6;
+			border: 2px solid $color-accent;
 			border-radius: 50%;
 			width: 38px;
 			height: 38px;
-			color: #10b2d6;
-			background-color: white;
+			color: $color-accent;
+			background-color: $white;
 			padding: 2px;
 			font-family: Ubuntu;
 			font-size: 22px;
@@ -90,9 +90,9 @@ export default {
 			user-select: none;
 
 			&_selected {
-				background-color: #10b2d6;
-				border-color: white;
-				color: white;
+				background-color: $color-accent;
+				border-color: $white;
+				color: $white;
 			}
 		}
 	}
