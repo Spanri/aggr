@@ -1,14 +1,10 @@
 <template>
 	<div>
 		<form class="signup3" @submit.prevent="onSubmit">
-			<p class="input-block__title">Кто вы 2?</p>
-			<!-- <b-form-select
-			v-model="status"
-			:options="[
-				{ value: 'study11', text: 'Учусь в 11 классе' },
-				{ value: 'study11-', text: 'Учусь в классе меньше 11' },
-			]"
-		/> -->
+			<p class="input-block__title">Укажите предметы и баллы, которые вы за них получили</p>
+			<Dropdown v-show="true" flow="horizontal" v-model="status" :items="statuses">
+				asd {{ status.text }}
+			</Dropdown>
 			<Dropdown />
 			<Button
 				@click="onPrev()"
@@ -16,6 +12,13 @@
 				class="button signup3__button signup3__button_prev"
 			>
 				НАЗАД
+			</Button>
+			<Button
+				@click="onSkip()"
+				:themeType="true"
+				class="button signup3__button signup3__button_prev"
+			>
+				ПРОПУСТИТЬ
 			</Button>
 			<Button type="submit" :themeType="true" class="button signup3__button signup3__button_next">
 				ДАЛЕЕ
@@ -52,8 +55,15 @@ export default {
 			});
 		},
 
+		onSkip() {
+			this.$emit("next", {
+				phase: "Signup4",
+				isAdd: true,
+				data: {},
+			});
+		},
+
 		onPrev() {
-			this.$emit("next", "Signup2");
 			this.$emit("next", {
 				phase: "Signup2",
 				isAdd: false,
