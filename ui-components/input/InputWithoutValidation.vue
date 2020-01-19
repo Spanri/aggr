@@ -11,10 +11,8 @@
 	</div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-
-export default Vue.extend({
+<script>
+export default {
 	name: "UiInput",
 
 	props: {
@@ -41,12 +39,12 @@ export default Vue.extend({
 			get() {
 				return this.value;
 			},
-			set(value: any) {
+			set(value) {
 				this.$emit("input", value);
 			},
 		},
 	},
-});
+};
 </script>
 
 <style lang="scss" scoped>
