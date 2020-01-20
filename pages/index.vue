@@ -36,6 +36,8 @@
 <script>
 export default {
 	name: "Index",
+
+	auth: "guest",
 };
 </script>
 

@@ -57,30 +57,38 @@ export default {
 		// Doc: https://bootstrap-vue.js.org/docs/
 		// 'bootstrap-vue/nuxt',
 		"@nuxtjs/axios",
+		"@nuxtjs/auth",
 		"@nuxtjs/style-resources",
 		"nuxt-svg-loader",
 	],
 	styleResources: {
 		scss: ["@/assets/scss/_base.scss"],
 	},
-	/*
-	 ** Axios
-	 */
-	axios: {
-		// proxyHeaders: false
-	},
 	router: {
 		middleware: ["auth"],
 	},
 	auth: {
+		redirect: {
+			login: "/auth/login",
+			logout: "/",
+			callback: "/auth/login",
+			home: "/",
+		},
 		strategies: {
 			local: {
 				endpoints: {
-					login: { url: "/auth/login", method: "post", propertyName: "jwt" },
+					login: { url: "/auth/login", method: "post", propertyName: "token" },
 					logout: { url: "/auth/logout", method: "post" },
 					user: { url: "/auth/user", method: "get", propertyName: "user" },
 				},
 			},
+		},
+	},
+	axios: {
+		baseURL: process.env.BACKEND_HOST || "http://localhost:3000/",
+		redirectError: {
+			401: "/auth/login",
+			404: "/auth/login",
 		},
 	},
 	extends: ["@nuxtjs/eslint-config-typescript"],

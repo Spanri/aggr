@@ -30,7 +30,7 @@ export const actions = {
 			//   body: JSON.stringify(user),
 			// })
 			this.$axios
-				.$post("http://18.222.253.172/login", user)
+				.$post("http://18.222.253.172/auth/login", user)
 				.then(resp => {
 					console.log(resp);
 					const token = resp;

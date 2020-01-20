@@ -17,6 +17,7 @@ import nuxt_plugin_vuexpersist_13f465a2 from 'nuxt_plugin_vuexpersist_13f465a2' 
 import nuxt_plugin_vuelidate_4be431c8 from 'nuxt_plugin_vuelidate_4be431c8' // Source: ../plugins/vuelidate.js (mode: 'all')
 import nuxt_plugin_vuejsmodal_0719e4a0 from 'nuxt_plugin_vuejsmodal_0719e4a0' // Source: ../plugins/vue-js-modal.js (mode: 'all')
 import nuxt_plugin_vclickoutside_8cb1efb6 from 'nuxt_plugin_vclickoutside_8cb1efb6' // Source: ../plugins/v-click-outside.js (mode: 'all')
+import nuxt_plugin_plugin_1f8a9060 from 'nuxt_plugin_plugin_1f8a9060' // Source: ./auth/plugin.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -185,6 +186,10 @@ async function createApp(ssrContext) {
 
   if (typeof nuxt_plugin_vclickoutside_8cb1efb6 === 'function') {
     await nuxt_plugin_vclickoutside_8cb1efb6(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_plugin_1f8a9060 === 'function') {
+    await nuxt_plugin_plugin_1f8a9060(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first
