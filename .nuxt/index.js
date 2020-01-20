@@ -12,11 +12,11 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_axios_3ee29a3b from 'nuxt_plugin_axios_3ee29a3b' // Source: .\\axios.js (mode: 'all')
-import nuxt_plugin_vuexpersist_13f465a2 from 'nuxt_plugin_vuexpersist_13f465a2' // Source: ..\\plugins\\vuex-persist (mode: 'client')
-import nuxt_plugin_vuelidate_4be431c8 from 'nuxt_plugin_vuelidate_4be431c8' // Source: ..\\plugins\\vuelidate.js (mode: 'all')
-import nuxt_plugin_vuejsmodal_0719e4a0 from 'nuxt_plugin_vuejsmodal_0719e4a0' // Source: ..\\plugins\\vue-js-modal.js (mode: 'all')
-import nuxt_plugin_vclickoutside_8cb1efb6 from 'nuxt_plugin_vclickoutside_8cb1efb6' // Source: ..\\plugins\\v-click-outside.js (mode: 'all')
+import nuxt_plugin_axios_1f44a3b8 from 'nuxt_plugin_axios_1f44a3b8' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_vuexpersist_13f465a2 from 'nuxt_plugin_vuexpersist_13f465a2' // Source: ../plugins/vuex-persist (mode: 'client')
+import nuxt_plugin_vuelidate_4be431c8 from 'nuxt_plugin_vuelidate_4be431c8' // Source: ../plugins/vuelidate.js (mode: 'all')
+import nuxt_plugin_vuejsmodal_0719e4a0 from 'nuxt_plugin_vuejsmodal_0719e4a0' // Source: ../plugins/vue-js-modal.js (mode: 'all')
+import nuxt_plugin_vclickoutside_8cb1efb6 from 'nuxt_plugin_vclickoutside_8cb1efb6' // Source: ../plugins/v-click-outside.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -167,8 +167,8 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_axios_3ee29a3b === 'function') {
-    await nuxt_plugin_axios_3ee29a3b(app.context, inject)
+  if (typeof nuxt_plugin_axios_1f44a3b8 === 'function') {
+    await nuxt_plugin_axios_1f44a3b8(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_vuexpersist_13f465a2 === 'function') {

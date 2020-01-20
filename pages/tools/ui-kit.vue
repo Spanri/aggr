@@ -3,12 +3,14 @@
 		<details class="ui-kit__input ui-kit__details">
 			<summary class="ui-kit__summary">Input с валидацией и без неё</summary>
 			<div class="ui-kit__content">
-				С валидацией:
+				<p>С валидацией:</p>
 				<Input :v="$v.input" v-model="input" errorDescription="Обязательное поле >= 3 символа." />
-			</div>
-			<div class="ui-kit__content">
-				Без валидации:
+				<hr />
+				<p>Без валидации:</p>
 				<InputWithoutValidation v-model="input" />
+				<hr />
+				<p>С поиском без валидации: {{ item.text }}</p>
+				<InputWithSearch v-model="item" :items="dropdowns" />
 			</div>
 		</details>
 		<details class="ui-kit__button ui-kit__details">
@@ -59,6 +61,7 @@ export default Vue.extend({
 	components: {
 		Input: () => import("@ui-components/input/Input.vue"),
 		InputWithoutValidation: () => import("@ui-components/input/InputWithoutValidation.vue"),
+		InputWithSearch: () => import("@ui-components/input/InputWithSearch.vue"),
 		Button: () => import("@ui-components/Button.vue"),
 		Dropdown: () => import("@ui-components/dropdown/Dropdown.vue"),
 		DropdownWithSearch: () => import("@ui-components/dropdown/DropdownWithSearch.vue"),
@@ -73,6 +76,7 @@ export default Vue.extend({
 				{ text: "two roses" },
 				{ text: "million one" },
 			],
+			item: "",
 		};
 	},
 

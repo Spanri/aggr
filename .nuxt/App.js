@@ -3,12 +3,12 @@ import { getMatchedComponentsInstances, promisify, globalHandleError } from './u
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
-import '..\\node_modules\\normalize.css\\normalize.css'
+import '../node_modules/normalize.css/normalize.css'
 
-import '..\\assets\\icomoon\\style.css'
+import '../assets/icomoon/style.css'
 
-import _6f6c098b from '..\\layouts\\default.vue'
-import _77430317 from '..\\layouts\\empty.vue'
+import _6f6c098b from '../layouts/default.vue'
+import _77430317 from '../layouts/empty.vue'
 
 const layouts = { "_default": _6f6c098b,"_empty": _77430317 }
 

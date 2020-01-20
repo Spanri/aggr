@@ -35,7 +35,7 @@ export default Vue.extend({
 		return {
 			items: [
 				{ title: "ГЛАВНАЯ", href: "/" },
-				{ title: "UI KIT", href: "/ui-kit" },
+				{ title: "UI KIT", href: "/tools/ui-kit" },
 				{ title: "ПУНКТ 3", href: "/" },
 				{ title: "ПУНКТ 4", href: "/" },
 				{ title: "ПУНКТ 5", href: "/" },
