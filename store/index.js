@@ -1,76 +1,49 @@
-import { AUTH_REQUEST, AUTH_LOGOUT, AUTH_SUCCESS, AUTH_ERROR } from "./mutations-type";
+export default {
+	state: {
+		token: null,
+		user: null,
+	},
 
-export const state = () => ({
-	token: "",
-	status: "",
-});
+	getters: {
+		isAuthenticated: state => !!state.token,
+		user: state => state.user,
+	},
 
-export const getters = {
-	isAuthenticated: state => !!state.token,
-	authStatus: state => state.status,
-};
+	mutations: {
+		setToken: (state, token) => {
+			state.token = token;
+		},
 
-export const actions = {
-	// nuxtServerInit({ commit, }, { req, }) {
-	//   if (req.session.user) {
-	//     commit('user', req.session.user);
-	//   }
-	// },
-	[AUTH_REQUEST]({ commit /*dispatch,*/ }, user) {
-		return new Promise((resolve, reject) => {
-			// The Promise used for router redirect in login
-			commit(AUTH_REQUEST);
-			// axios.post('http://18.222.253.172/login', {
-			//   // Send the client cookies to the server
-			//   credentials: 'same-origin',
-			//   method: 'POST',
-			//   headers: {
-			//     'Content-Type': 'application/json',
-			//   },
-			//   body: JSON.stringify(user),
-			// })
-			this.$axios
-				.$post("http://18.222.253.172/auth/login", user)
-				.then(resp => {
-					console.log(resp);
-					const token = resp;
-					if (process.browser) {
-						localStorage.setItem("user-token", token);
-					}
-					commit(AUTH_SUCCESS, token);
-					// you have your token, now log in your user :)
-					// dispatch(USER_REQUEST);
-					resolve(resp);
-				})
-				.catch(err => {
-					commit(this.AUTH_ERROR, err);
-					if (process.browser) {
-						localStorage.removeItem("user-token");
-					}
-					reject(err);
+		setUser: (state, user) => {
+			state.user = user;
+		},
+	},
+
+	actions: {
+		async login({ commit }, { email, password }) {
+			try {
+				const res = await this.$axios.$post("login", { email, password });
+				if (process.browser) {
+					localStorage.setItem("token", res.token);
+				}
+				commit("setToken", res.token);
+				commit("setUser", {
+					profile: {
+						name: "Anna",
+					},
 				});
-		});
-	},
-	[AUTH_LOGOUT]: ({ commit /*dispatch*/ }) => {
-		return new Promise((resolve /*reject*/) => {
-			commit(this.AUTH_LOGOUT);
-			if (process.browser) {
-				localStorage.removeItem("user-token");
+			} catch (error) {
+				if (process.browser) {
+					localStorage.removeItem("token");
+				}
+				throw error;
 			}
-			resolve();
-		});
-	},
-};
+		},
 
-export const mutations = {
-	[AUTH_REQUEST]: state => {
-		state.status = "loading";
-	},
-	[AUTH_SUCCESS]: (state, token) => {
-		state.status = "success";
-		state.token = token;
-	},
-	[AUTH_ERROR]: state => {
-		state.status = "error";
+		logout({ commit }) {
+			localStorage.removeItem("token");
+			commit("setToken", null);
+			commit("setUser", null);
+		},
 	},
 };

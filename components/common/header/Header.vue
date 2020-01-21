@@ -5,21 +5,26 @@
 				<Logo class="header__logo" />
 			</nuxt-link>
 			<HeaderNav class="header__nav" :items="items" />
-			<nuxt-link to="/auth/login" class="header__profile header__profile_false">
+			<nuxt-link
+				v-if="!isAuthenticated"
+				to="/auth/login"
+				class="header__profile header__profile_false"
+			>
 				<span class="header__profile-text">Войти</span>
 				<span class="header__profile-logo icon-person" />
 			</nuxt-link>
-			<!-- <div 
-        class="header__profile header__profile_true"
-      >
-        <span class="header__profile-text">Войти</span>
-        <LogoProfile class="header__profile-logo"/>
-			</div>-->
+
+			<div v-else class="header__profile header__profile_true">
+				<span class="header__profile-text">{{ user.profile.name }}</span>
+				<LogoProfile class="header__profile-logo" />
+				<span @click="onLogout()">выйти</span>
+			</div>
 		</header>
 	</div>
 </template>
 
 <script lang="ts">
+import { mapGetters, mapActions } from "vuex";
 import Vue from "vue";
 
 export default Vue.extend({
@@ -41,6 +46,18 @@ export default Vue.extend({
 				{ title: "ПУНКТ 5", href: "/" },
 			],
 		};
+	},
+
+	computed: {
+		...mapGetters(["isAuthenticated", "user"]),
+	},
+
+	methods: {
+		...mapActions(["logout"]),
+
+		onLogout() {
+			this.logout();
+		},
 	},
 });
 </script>

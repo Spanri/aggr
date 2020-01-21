@@ -36,15 +36,14 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { required } from "vuelidate/lib/validators";
-// import {
-//   AUTH_REQUEST,
-// } from '../store/mutations-type';
 
 export default {
 	name: "AuthLogin",
 
 	layout: "empty",
+	middleware: "authFalse",
 
 	components: {
 		Input: () => import("@ui-components/input/Input.vue"),
@@ -69,29 +68,17 @@ export default {
 	},
 
 	methods: {
-		onSubmit() {
+		...mapActions(["login"]),
+
+		async onSubmit() {
 			this.$v.$touch();
 			if (!this.$v.$invalid) {
-				this.$modal.show("dialog", {
-					title: "Вход",
-					text: "Форма заполнена верно, но функционал еще не реализован 😓",
-					buttons: [
-						{
-							title: "На главную",
-							handler: () => {
-								this.$router.push("/");
-							},
-						},
-						{
-							title: "Закрыть",
-						},
-					],
-				});
-				// const { username, password, } = this;
-				// this.$store.dispatch(AUTH_REQUEST, { username, password, }).then(() => {
-				//   // this.$router.push('/home');
-				//   console.log('isAuthenticated', this.$store.getters.isAuthenticated);
-				// });
+				try {
+					await this.login({ email: "eve.holt@reqres.in", password: "cityslicka" });
+				} catch (error) {
+					console.log(error);
+				}
+				this.$router.push("/");
 			} else {
 				this.$modal.show("dialog", {
 					title: "Ошибка",

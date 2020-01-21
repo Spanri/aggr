@@ -138,7 +138,7 @@ export async function setContext(app, context) {
       payload: context.payload,
       error: context.error,
       base: '/',
-      env: {"isProduction":false,"isDevelopment":true,"frontendHost":"localhost:8080","backendHost":"localhost:8080"}
+      env: {"isProduction":false,"isDevelopment":true,"frontendHost":"localhost:8080","backendHost":"https://reqres.in/api/"}
     }
     // Only set once
     if (context.req) {

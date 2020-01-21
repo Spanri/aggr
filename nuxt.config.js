@@ -64,26 +64,6 @@ export default {
 	styleResources: {
 		scss: ["@/assets/scss/_base.scss"],
 	},
-	router: {
-		middleware: ["auth"],
-	},
-	auth: {
-		redirect: {
-			login: "/auth/login",
-			logout: "/",
-			callback: "/auth/login",
-			home: "/",
-		},
-		strategies: {
-			local: {
-				endpoints: {
-					login: { url: "/auth/login", method: "post", propertyName: "token" },
-					logout: { url: "/auth/logout", method: "post" },
-					user: { url: "/auth/user", method: "get", propertyName: "user" },
-				},
-			},
-		},
-	},
 	axios: {
 		baseURL: process.env.BACKEND_HOST || "http://localhost:3000/",
 		redirectError: {
